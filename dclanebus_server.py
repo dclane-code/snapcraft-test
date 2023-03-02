@@ -3,6 +3,7 @@
 from dasbus.server.interface import dbus_interface
 from dasbus.typing import Str
 
+
 @dbus_interface("org.dclane.Dave")
 class Dave(object):
 
