@@ -1,5 +1,8 @@
 #!/bin/env python3
 
+import sys
+print("pythonpath = {}".format(sys.path))
+
 from dasbus.server.interface import dbus_interface
 from dasbus.typing import Str
 
