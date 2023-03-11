@@ -1,0 +1,20 @@
+object paths /path/to/my/object
+object members:
+    method
+        normal functions, can be invoked, input output etc
+    signal
+        broadcast message, with (optional) payload
+
+objects have Interfaces (of course)
+    specify the methods and signals
+
+proxies
+    convenient native object that represents a remote object in another process
+    abstracts away the need for explicitly sending and receiving messages
+
+bus names
+    spec can define that you own a _name_ which has object at _path_, supporting _interface_
+
+
+
+just read: https://dbus.freedesktop.org/doc/dbus-tutorial.html
