@@ -1,7 +1,7 @@
 name: dclanebus
 base: core22 # the base snap is the execution environment for this snap
-version: '0.2.0' # just for humans, typically '1.2+git' or '1.3.2'
-summary: sample dbus client/server apps in python
+version: '0.4.0' # just for humans, typically '1.2+git' or '1.3.2'
+summary: new sample dbus client/server apps in python
 description: |
     just for learning
 grade: devel # must be 'stable' to release into candidate/stable channels
@@ -11,48 +11,42 @@ parts:
 
   dclanebus:
     # See 'snapcraft plugins'
-    plugin: dump
-    source: https://github.com/dclane-code/dbus-demo.git
-    stage-packages: [python3-dasbus]
+    #plugin: dump
+    #source: https://github.com/dclane-code/dbus-demo.git
+    #stage-packages: [python3-dasbus]
 
     ## -- local testing --
-    # plugin: dump
-    # source: .
-    organize:
-      dclanebus.conf: etc/dclanebus.conf
+    plugin: dump
+    source: .
+    #organize:
+    #  dclanebus.conf: etc/dclanebus.conf
 
 slots:
   dclanebus-server:
     interface: dbus
-    bus: system             # has to be a system bus because its a daemon
-    name: org.dclane.Dave
+    bus: system
+    name: org.dclane.SampleService
 
 plugs:
   dclanebus-client:
     bus: system
     interface: dbus
-    name: org.dclane.Dave
+    name: org.dclane.SampleService
 
 apps:
   client:
-    command: dclanebus_client.py
+    command: client.py
     extensions: [gnome]
     environment: 
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
-    plugs: [ dclanebus-client ]
-
+    plugs: [ dclanebus-client, desktop ]
+    
 
   server:
-    command: dclanebus_server.py
+    command: service.py
     daemon: simple
     slots: [ dclanebus-server ]
+    plugs: [ desktop, network, network-bind ]
     extensions: [gnome]
     environment: 
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
-  conf:
-    command: dclanebus_conf.py
-
-layout:
-  /etc/dclanebus.conf:
-    bind-file: $SNAP_COMMON/etc/dclanebus.conf
-    
