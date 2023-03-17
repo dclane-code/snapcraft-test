@@ -8,8 +8,8 @@ else:
     name = sys.argv[1]
 
 
-from dasbus.connection import SessionMessageBus
-bus = SessionMessageBus()
+from dasbus.connection import SystemMessageBus
+bus = SystemMessageBus()
 
 
 proxy = bus.get_proxy(

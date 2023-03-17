@@ -18,8 +18,8 @@ class Dave(object):
 print(Dave.__dbus_xml__)
 
 
-from dasbus.connection import SessionMessageBus
-bus = SessionMessageBus()
+from dasbus.connection import SystemMessageBus
+bus = SystemMessageBus()
 
 bus.publish_object("/org/dclane/Dave", Dave())
 bus.register_service("org.dclane.Dave")
