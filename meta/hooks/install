@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-CONFIG_FILE=$SNAP_DATA/config
+CONFIG_FILE=$SNAP_DATA/config                       # will land in /var/snap/<snap-name>/CURRENT/...
 echo "waahoo" > $CONFIG_FILE
 
-cp $SNAP/etc/dclanebus.conf $SNAP_COMMON/etc/
+cp $SNAP/etc/dclanebus.conf $SNAP_COMMON/etc/       # will land in /var/snap/<snap-name>/COMMON/...
