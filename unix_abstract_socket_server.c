@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stddef.h>
 
-#define SOCKET_NAME "#dclusock"
+#define SOCKET_NAME "#snap.dclanebus.dclusock"
 #define ECHO_MSG "you said: "
 #define ECHO_LEN 10
 

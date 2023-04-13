@@ -62,7 +62,7 @@ apps:
     plugs:
     - network-bind
 
-  unixecho_abstract:
+  unixecho-abstract:
     command: dcl_echo_srv_abs
     plugs:
     - network-bind
