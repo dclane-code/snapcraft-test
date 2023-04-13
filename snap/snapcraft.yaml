@@ -12,7 +12,7 @@ parts:
   dclanebus:
     # See 'snapcraft plugins'
     plugin: dump
-    source: https://github.com/dclane-code/dbus-demo.git
+    source: https://github.com/dclane-code/snapcraft-test.git
     stage-packages: [python3-dasbus]
 
     ## -- local testing --
