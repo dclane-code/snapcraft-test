@@ -25,6 +25,10 @@ parts:
     plugin: make
     source: .
 
+  openchr:
+    plugin: dump
+    source: .
+
 
 slots:
   dclanebus-server:
@@ -38,7 +42,14 @@ plugs:
     interface: dbus
     name: org.dclane.Dave
 
+system-usernames:
+  snap_daemon: shared
+
 apps:
+
+  openchr:
+    command: open-chrome.py
+    plugs: [desktop]
 
   client:
     command: dclanebus_client.py
